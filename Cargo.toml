@@ -1,0 +1,3 @@
+[workspace]
+members = ["risc0-compat"]
+exclude = ["kairos-circuit"]
