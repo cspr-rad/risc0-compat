@@ -10,4 +10,4 @@ risc0 = ["dep:risc0-zkvm"]
 
 [dependencies]
 serde={version="1", default-features=false, features=["derive"]}
-risc0-zkvm = { version = "0.21.0", default-features=false, optional=true }
+risc0-zkvm = {version = "0.21.0", default-features=false, optional=true}
