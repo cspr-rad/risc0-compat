@@ -5,11 +5,9 @@
 extern crate alloc;
 use alloc::{vec, vec::Vec};
 
-use risc0_zkvm::guest::env;
 use risc0_compat::compat::env::{commit, read};
 use risc0_compat::compat::crypto::sha::hash;
-risc0_zkvm::guest::entry!(main);
-
+risc0_compat::entry!(main);
 
 fn main() {
     // TODO: Implement your guest code here

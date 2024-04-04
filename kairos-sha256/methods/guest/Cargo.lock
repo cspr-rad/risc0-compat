@@ -669,7 +669,6 @@ name = "sha256"
 version = "0.1.0"
 dependencies = [
  "risc0-compat",
- "risc0-zkvm",
 ]
 
 [[package]]
