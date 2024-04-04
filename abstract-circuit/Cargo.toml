@@ -1,8 +1,0 @@
-[package]
-name = "abstract-circuit"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-risc0-compat = {path="../risc0-compat"}
-serde = "1"

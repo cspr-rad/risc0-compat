@@ -1,2 +1,2 @@
 [workspace]
-members = [ "abstract-circuit","risc0-compat"]
+members = ["risc0-compat"]
