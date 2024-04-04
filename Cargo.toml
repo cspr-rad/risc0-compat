@@ -1,3 +1,2 @@
 [workspace]
-members = ["risc0-compat"]
-exclude = ["kairos-circuit"]
+members = [ "abstract-circuit","risc0-compat"]
