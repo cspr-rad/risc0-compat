@@ -33,6 +33,7 @@ fn main() {
         let signature: Signature = Signature::from_bytes(signature_bytes.as_ref()).expect("Failed to construct Signature!").0;
         let signature_input: SignatureInput = SignatureInput{
             data: raw_message.clone(),
+            // for this to work I had to make the public_key field in the Signer (casper.rs) of kairos-crypto public
             public_key: signer.public_key.clone(),
             signature: signature
         };
