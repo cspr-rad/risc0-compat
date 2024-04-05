@@ -3,7 +3,9 @@ use serde::{Serialize, de::DeserializeOwned};
 pub fn commit<T: Serialize>(data: &T){
     #[cfg(not(feature="risc0"))]
     {
-        // mock is to be implemented
+        /*
+            write serialized data to SQLite
+        */
     }
     #[cfg(feature="risc0")]
     {
@@ -13,7 +15,10 @@ pub fn commit<T: Serialize>(data: &T){
 }
 
 #[cfg(not(feature="risc0"))]
-pub fn read<T: DeserializeOwned>(){
+pub fn read<T: DeserializeOwned>(){ // -> T{
+    /*
+        return deserialized data from SQLite
+    */
 
 }
 

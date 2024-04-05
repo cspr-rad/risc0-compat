@@ -1,2 +1,3 @@
 [workspace]
-members = ["risc0-compat"]
+members = ["risc0-compat", "signature-types"]
+exclude = ["kairos-signatures"]
