@@ -1,3 +1,4 @@
+use casper_types::PublicKey;
 use methods::{
     ECDSA_ELF, ECDSA_ID
 };
@@ -24,6 +25,7 @@ fn main() {
     let path_to_secret_key = env::var("PATH_TO_SECRET_KEY_PEM")
         .expect("Missing environment variable PATH_TO_SECRET_KEY_PEM");
     let signer = Signer::from_private_key_file(PathBuf::from(path_to_secret_key)).expect("Failed to construct signer!");
+    let public_key: PublicKey = PublicKey::from_bytes(signer.to_public_key().unwrap().as_ref()).expect("Failed to parse public key!").0;
     let mut signature_batch_input: SignatureBatchInput = SignatureBatchInput{
         signatures: Vec::new()
     };
@@ -33,8 +35,7 @@ fn main() {
         let signature: Signature = Signature::from_bytes(signature_bytes.as_ref()).expect("Failed to construct Signature!").0;
         let signature_input: SignatureInput = SignatureInput{
             data: raw_message.clone(),
-            // for this to work I had to make the public_key field in the Signer (casper.rs) of kairos-crypto public
-            public_key: signer.public_key.clone(),
+            public_key: public_key.clone(),
             signature: signature
         };
         signature_batch_input.signatures.push(signature_input);
@@ -55,6 +56,7 @@ fn main() {
     let receipt = prover
         .prove(env, ECDSA_ELF)
         .unwrap();
+    let _output: u32 = receipt.journal.decode().unwrap();
     receipt
         .verify(ECDSA_ID)
         .unwrap();

@@ -9,7 +9,7 @@ methods = { path = "../methods" }
 risc0-zkvm = { version = "0.21.0" }
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 serde = "1.0"
-kairos-crypto = {path="../../kairos/kairos-crypto",  features=["crypto-casper"]}
+kairos-crypto = {git="https://github.com/cspr-rad/kairos",  features=["crypto-casper"]}
 signature-types = {path="../../signature-types"}
 dotenvy = "0.15.7"
 casper-types = {version="4.0.1", features=["std"]}
